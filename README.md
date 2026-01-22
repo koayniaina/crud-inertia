@@ -1,3 +1,10 @@
+# CRUD Inertia + Laravel + Vue 3
+
+## Configuration `.env`
+
+Voici un exemple de fichier `.env` pour le projet :
+
+```env
 APP_NAME=Laravel
 APP_ENV=local
 APP_KEY=base64:m2M5a/M2kFVecbfqKjLZK72VNfeRUjRjU0RlQVkNvd4=
@@ -58,9 +65,15 @@ VITE_PUSHER_PORT="${PUSHER_PORT}"
 VITE_PUSHER_SCHEME="${PUSHER_SCHEME}"
 VITE_PUSHER_APP_CLUSTER="${PUSHER_APP_CLUSTER}"
 
-<!-- Run Projet -->
-npm run dev : Vuejs
-php artisan serve
-
-<!-- iinstall -->
+<!-- Installer les dépendances Laravel -->
+composer install
+<!-- Copier le fichier .env -->
+cp .env.example .env
+<!-- Générer la clé de l’application : -->
+php artisan key:generate
+<!-- Installer les dépendances Node -->
+npm install
+<!-- Lancer le serveur de développement pour Vue 3 / Vite : -->
 npm run dev
+<!-- Lancer le serveur Laravel : -->
+php artisan serve
