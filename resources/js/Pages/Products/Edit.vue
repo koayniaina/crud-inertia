@@ -27,25 +27,22 @@
 import { useForm } from '@inertiajs/vue3'
 import { route } from 'ziggy-js'
 
-// ⚠️ On récupère le produit depuis les props
+
 const props = defineProps({
     product: Object,
     errors: Object
 })
 
-// Formulaire Inertia initialisé avec les données existantes
+
 const form = useForm({
     title: props.product.title,
     description: props.product.description,
     price: props.product.price
 })
 
-// Fonction pour mettre à jour le produit
+
 const updateProduct = () => {
     form.put(route('products.update', props.product.id), {
-        onSuccess: () => {
-            console.log('Product updated successfully')
-        },
         onError: (errors) => {
             console.log('Validation errors:', errors)
         }

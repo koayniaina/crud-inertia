@@ -8,7 +8,7 @@ use Inertia\Inertia;
 
 class ProductController extends Controller
 {
-    // 1️⃣ Affiche la liste des produits
+
     public function index()
     {
         $products = Product::get();
@@ -17,13 +17,11 @@ class ProductController extends Controller
         ]);
     }
 
-    // 2️⃣ Affiche le formulaire de création
     public function create()
     {
         return Inertia::render('Products/Create');
     }
 
-    // 3️⃣ Enregistre un nouveau produit
     public function store(Request $request)
     {
         $validated = $request->validate([
@@ -37,7 +35,7 @@ class ProductController extends Controller
         return redirect()->route('products.index')->with('success', 'Produit créé avec succès !');
     }
 
-    // 4️⃣ Affiche un produit spécifique (facultatif pour CRUD Vue)
+
     // public function show(Product $product)
     // {
     //     return Inertia::render('Products/Show', [
@@ -45,7 +43,6 @@ class ProductController extends Controller
     //     ]);
     // }
 
-    // 5️⃣ Affiche le formulaire d’édition
     public function edit(Product $product)
     {
         return Inertia::render('Products/Edit', [
@@ -53,7 +50,6 @@ class ProductController extends Controller
         ]);
     }
 
-    // 6️⃣ Met à jour un produit existant
     public function update(Request $request, Product $product)
     {
         $validated = $request->validate([
@@ -67,7 +63,6 @@ class ProductController extends Controller
         return redirect()->route('products.index')->with('success', 'Produit mis à jour avec succès !');
     }
 
-    // 7️⃣ Supprime un produit
     public function destroy(Product $product)
     {
         $product->delete();

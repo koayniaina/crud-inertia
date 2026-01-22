@@ -27,14 +27,13 @@
 import { useForm } from '@inertiajs/vue3'
 import { route } from 'ziggy-js'
 
-// Formulaire Inertia
 const form = useForm({
     title: '',
     description: '',
     price: ''
 })
 
-// Fonction pour créer le produit
+
 const createProduct = () => {
     form.post(route('products.store'), {
         onError: (errors) => {
